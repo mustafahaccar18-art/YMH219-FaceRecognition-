@@ -2,20 +2,32 @@
 
 **Ödev 7** — OpenCV tabanlı yüz algılama ve temel yüz tanıma uygulaması (.NET 10 Windows Forms).
 
-## Özellikler
+---
+
+## 📸 Ekran Görüntüleri
+
+| Uygulama Başlangıcı & Model Eğitimi | Canlı Kamera ve Başarılı Yüz Tanıma |
+|:---:|:---:|
+| ![Uygulama Başlangıcı](screenshots/app_startup.png) | ![Yüz Algılama ve Tanıma](screenshots/face_recognition.jpg) |
+
+---
+
+## 🎯 Özellikler ve Karşılanan Gereksinimler
 
 | Gereksinim | Durum |
 |---|---|
 | Kamera görüntüsü PictureBox'ta gösterilir | ✅ |
 | Yüz bölgesi dikdörtgen ile işaretlenir (Yeşil: Tanınan, Turuncu: Bilinmeyen) | ✅ |
 | En az 2 kişilik yerel eğitim seti + temel tanıma | ✅ (`mustafa`, `Kisi2`) |
-| Tahmin edilen etiket ve güven skoru gösterilir (`mustafa 85.2%`) | ✅ |
+| Tahmin edilen etiket ve güven skoru gösterilir (`mustafa 51.3%`) | ✅ |
 | Kamera Başlat / Durdur düğmeleri | ✅ |
 | Görüntü Seç düğmesi (dosyadan resim yükleme ve test etme) | ✅ |
 | Modeli Yeniden Eğit düğmesi (tek tıkla anında yeniden eğitim) | ✅ |
 | Kamera veya model dosyası bulunamadığında hata bildirimi | ✅ |
 
-## Kullanılan Teknolojiler
+---
+
+## 🛠️ Kullanılan Teknolojiler
 
 - **C# / .NET 10.0 Windows Forms**
 - **OpenCvSharp4.Windows** — OpenCV 4.9 sarmalayıcısı
@@ -23,7 +35,9 @@
 - **LBPH (Local Binary Patterns Histograms)** — yüz tanıma modeli
 - **Haar Cascade** (`haarcascade_frontalface_default.xml`) — yüz algılama
 
-## Kurulum ve Çalıştırma
+---
+
+## 🚀 Kurulum ve Çalıştırma
 
 ```bash
 # 1. Projeyi derleyin:
@@ -35,7 +49,9 @@ dotnet run -c Release
 # bin/Release/net10.0-windows/FaceRecognition.exe
 ```
 
-## Eğitim Verisi Eklemek
+---
+
+## 🧠 Eğitim Verisi Eklemek
 
 Tanıma için `TrainingData/` klasörü altına kişi adıyla klasör açıp içine yüz fotoğrafları ekleyin:
 
@@ -52,11 +68,13 @@ TrainingData/
 
 Uygulama başlatıldığında veya **"🔄 Modeli Eğit"** düğmesine tıklandığında:
 1. Her fotoğraftaki yüz Haar Cascade ile otomatik kırpılır.
-2. Histogram eşitleme (EqualizeHist) uygulanarak ışık dengelenir.
-3. Yatay aynalama (flip) ile veri çeşitliliği artırılır.
-4. LBPH modeli eğitilir ve kullanıma hazır hale gelir.
+2. Histogram eşitleme (`EqualizeHist`) uygulanarak ışık dengelenir.
+3. Yatay aynalama (`FlipMode.Y`) ile veri çeşitliliği artırılır.
+4. LBPH modeli eğitilir ve `face_model.yml` dosyasına kaydedilir.
 
-## Proje Yapısı
+---
+
+## 📁 Proje Yapısı
 
 ```
 FaceRecognition/
@@ -65,6 +83,9 @@ FaceRecognition/
 ├── Form1.cs                      ← Ana mantık (kamera döngüsü, algılama, tanıma)
 ├── Form1.Designer.cs             ← Koyu temalı modern arayüz
 ├── haarcascade_frontalface_default.xml   ← Haar cascade yüz modeli
+├── screenshots/                  ← Ekran görüntüleri
+│   ├── app_startup.png
+│   └── face_recognition.jpg
 └── TrainingData/
     ├── README.md
     ├── mustafa/                  ← Mustafa için yüz örnekleri
