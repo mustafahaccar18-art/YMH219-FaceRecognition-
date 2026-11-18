@@ -111,5 +111,5 @@ To add or modify faces for recognition:
 ## 8. Student Information
 
 - **Student Name:** Mustafa Haccar
-- **Student ID:** [Öğrenci Numarası / Student Number]
+- **Student ID:** [250541623]
 - **Course:** YMH219
